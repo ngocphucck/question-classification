@@ -1,0 +1,6 @@
+pandas
+gensim
+torch
+sklearn
+matplotlib
+tqdm
