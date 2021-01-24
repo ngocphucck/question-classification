@@ -25,8 +25,8 @@ corpus = get_corpus()
 corpus_len = max(len(doc.split()) for doc in corpus)
 types = get_type()
 
-X_train_val, X_test, y_train_val, y_test = train_test_split(corpus, types, test_size=0.2, random_state=0)
-X_train, X_val, y_train, y_val = train_test_split(X_train_val, y_train_val, test_size=0.4, random_state=0)
+X_train_val, X_test, y_train_val, y_test = train_test_split(corpus, types, test_size=0.2, random_state=2000)
+X_train, X_val, y_train, y_val = train_test_split(X_train_val, y_train_val, test_size=0.4, random_state=2000)
 
 train_dataset = QuestionDataset(X_train, y_train, corpus_len=corpus_len)
 train_dataloader = DataLoader(train_dataset, batch_size=BATCH_SIZE)
@@ -38,11 +38,12 @@ test_dataloader = DataLoader(test_dataset, batch_size=len(test_dataset))
 
 # model
 MODEL_SAVE_PATH = './data/rnn_model.pt'
-model = RNN(input_size=300, output_size=6, hidden_dim=128, n_layers=3)
+model = RNN(input_size=300, output_size=6, hidden_dim=64, n_layers=1)
 
-N_EPOCHS = 100
+lr = 0.0001
+N_EPOCHS = 200
 loss_fn = nn.CrossEntropyLoss()
-optimizer = Adam(model.parameters())
+optimizer = Adam(model.parameters(), lr=lr)
 
 
 # train
