@@ -6,12 +6,13 @@
 * [Set up](#set-up)
 
 ## Introduction
-This is the first my project in nlp^^
+Recurrent neural networks, also known as RNNs, are a class of neural networks that allow previous outputs to be used as inputs while having hidden states.
 
+## Architecture
 The architecture of the model:
 * Embedding layer (pretrained model)
 * RNN
-* ...
+* Softmax Loss
 
 ## Requirements
 Download the embedding pretrained model at [GoogleNews vectorization](https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit?usp=sharing).
